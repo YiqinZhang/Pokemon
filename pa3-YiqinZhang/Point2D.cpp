@@ -14,8 +14,8 @@ Point2D::Point2D()
     }
 Point2D::Point2D(double in_x, double in_y)
     {
-        in_x = x;
-        in_y = y;
+        x = in_x;
+        y = in_y;
     }
 
 double GetDistanceBetween(Point2D p1, Point2D p2)
@@ -25,12 +25,12 @@ double GetDistanceBetween(Point2D p1, Point2D p2)
 
 ostream& operator<< (ostream & os, Point2D p1)
 {
-    os <<"(" << p1.x <<p1.y << ")";
+    os <<"(" << p1.x <<","<<p1.y << ")";
     return os;
 }
 
 
-Point2D operator+ (Point2D p1, Vector2D &v1)
+Point2D operator+ (Point2D p1, Vector2D v1)
 {
     Point2D p2;
     p2.x = p1.x + v1.x;

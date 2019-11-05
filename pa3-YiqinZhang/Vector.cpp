@@ -16,8 +16,8 @@ Vector2D::Vector2D()
 
 Vector2D::Vector2D(double in_x, double in_y)
     {
-        in_x = x;
-        in_y = y;
+        x = in_x;
+        y = in_y;
     }
 
 
@@ -43,6 +43,6 @@ Vector2D operator/ (Vector2D v1, double d)
 
 ostream& operator<< (ostream & os, Vector2D v1)
 {
-    os <<"<" << v1.x <<v1.y << ">";
+    os <<"<" << v1.x << ","<<v1.y << ">";
     return os;
 }

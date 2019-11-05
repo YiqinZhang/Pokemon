@@ -18,7 +18,7 @@ public:
     GameObject(Point2D in_loc, int in_id, char in_code);
     Point2D GetLocation();
     int GetId();
-    bool GetState();
+    char GetState();
     void ShowStatus();
 };
 

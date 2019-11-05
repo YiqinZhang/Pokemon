@@ -23,6 +23,6 @@ double GetDistanceBetween(Point2D p1, Point2D p2);
 ostream & operator<< (ostream & os, Point2D p1);
 
 Point2D operator+ (Point2D p1, Vector2D v1);
-
+Vector2D operator- (Point2D p1, Point2D p2);
 
 #endif //PA33_POINT2D_H
