@@ -1,40 +1,41 @@
+//
+// Created by Garfield on 2019-11-06.
+//
+
 #include "Building.h"
 #include "Point2D.h"
+#include "GameObject.h"
 
-unsigned int Building::pokemon_count = 0;
-
-Building::Building()
-    {
-    display_code = 'B';
-    cout << " Building default constructed."
-    }
-Building::Building(char in_code, int in_Id, Point2D in_loc)
+Building::Building(): GameObject('B')
 {
-    id_num = in_Id;
-    location = in_loc;
-    display_code = in_code;
-    cout << " Building constructed."
+    pokemon_count = 0;
+    cout << "Building default constructed." << endl;
+}
+Building::Building(char in_code, int in_id, Point2D in_loc):GameObject(in_loc, in_id, in_code)
+{
+    pokemon_count = 0;
+    cout << "Building constructed."<< endl;
 }
 
-void Building:: AddOnePokemon();
+void Building:: AddOnePokemon()
 {
     pokemon_count ++;
-}	
-void Building::RemoveOnePokemon();
+}
+void Building::RemoveOnePokemon()
 {
     pokemon_count --;
-}	
-void Building::ShowStatus();
+}
+void Building::ShowStatus()
 {
-    cout << display_code <<" " << id << " located at " << location << endl;
-    if(pokemon_count <= 1 ) 
+    //cout << display_code <<" " << id_num << " located at " << location << endl;
+    if(pokemon_count <= 1 )
     cout << pokemon_count << " pokemen is in this building." << endl;
-    else 
+    else
     cout << pokemon_count << " pokemen are in this building."<< endl;
-}	
-	
-void Building::ShouldBeVisible()
+}
+
+bool Building::ShouldBeVisible()
 {
-return true;
+    return true;
 
 }

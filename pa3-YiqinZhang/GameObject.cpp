@@ -11,7 +11,7 @@ GameObject::GameObject(char in_code)
     display_code = in_code;
     id_num = 1;
     state = 0;
-    cout << "GameObject constructed" << endl;
+    cout << "GameObject constructed." << endl;
 }
 
 GameObject::GameObject(Point2D in_loc, int in_id, char in_code)
@@ -20,7 +20,7 @@ GameObject::GameObject(Point2D in_loc, int in_id, char in_code)
     id_num = in_id;
     location = in_loc;
     state = 0;
-    cout << "GameObject constructed" << endl;
+    cout << "GameObject constructed." << endl;
 }
 
 
@@ -38,7 +38,6 @@ char GameObject::GetState()
 {
     return state;
 }
-
 
 void GameObject::ShowStatus()
 {

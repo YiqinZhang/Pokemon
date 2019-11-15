@@ -9,7 +9,7 @@
 #define PA33_POINT2D_H
 using namespace std;
 
-class Vector2D;
+//class Vector2D;
 class Point2D
 {
     public:
