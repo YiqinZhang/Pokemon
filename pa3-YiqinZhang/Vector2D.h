@@ -1,9 +1,9 @@
 //
-// Created by Garfield on 2019-11-05.
+// Created by Garfield on 2019-11-19.
 //
 
-#ifndef PA33_VECTOR2D_H
-#define PA33_VECTOR2D_H
+#ifndef PA32_VECTOR2D_H
+#define PA32_VECTOR2D_H
 #include <iostream>
 using namespace std;
 
@@ -20,6 +20,5 @@ Vector2D operator* (Vector2D v1, double d);
 
 Vector2D operator/ (Vector2D v1, double d);
 
-ostream & operator<< (ostream & os, Vector2D v1);
-
-#endif //PA33_VECTOR2D_H
+ostream& operator<< (ostream& os, Vector2D v1);
+#endif //PA32_VECTOR2D_H

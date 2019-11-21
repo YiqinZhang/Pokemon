@@ -1,9 +1,9 @@
 //
-// Created by Garfield on 2019-11-11.
+// Created by Garfield on 2019-11-19.
 //
 
-#ifndef PA33_POKEMON_H
-#define PA33_POKEMON_H
+#ifndef PA32_POKEMON_H
+#define PA32_POKEMON_H
 #include "GameObject.h"
 #include "PokemonCenter.h"
 #include "PokemonGym.h"
@@ -25,7 +25,8 @@ class Pokemon: public GameObject
 public:
     Pokemon ();
     Pokemon (char);
-    Pokemon (string, int, char in_code, unsigned int, Point2D in_loc);
+    Pokemon (string in_name, int in_id, char in_code, unsigned int in_speed,
+             Point2D in_loc);
     void StartMoving(Point2D);
     void StartMovingToCenter(PokemonCenter*);
     void StartMovingToGym( PokemonGym*);
@@ -36,6 +37,7 @@ public:
     bool ShouldBeVisible();
     void ShowStatus();
     bool Update();
+    PokemonGym* getcurrentgym();
 
 protected:
     bool UpdateLocation();
@@ -57,7 +59,6 @@ private:
     Vector2D delta;
 };
 
-double GetRandomAmountOfPokemonDollars();
+static double GetRandomAmountOfPokemonDollars();
 
-
-#endif //PA33_POKEMON_H
+#endif //PA32_POKEMON_H

@@ -1,9 +1,9 @@
 //
-// Created by Garfield on 2019-11-06.
+// Created by Garfield on 2019-11-19.
 //
 
-#ifndef PA33_POKEMONCENTER_H
-#define PA33_POKEMONCENTER_H
+#ifndef PA32_POKEMONCENTER_H
+#define PA32_POKEMONCENTER_H
 #include "Point2D.h"
 #include "Building.h"
 class PokemonCenter: public Building
@@ -27,4 +27,4 @@ public:
     bool Update();
     void ShowStatus();
 };
-#endif //PA33_POKEMONCENTER_H
+#endif //PA32_POKEMONCENTER_H

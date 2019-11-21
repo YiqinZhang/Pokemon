@@ -1,5 +1,5 @@
 //
-// Created by Garfield on 2019-11-06.
+// Created by Garfield on 2019-11-19.
 //
 
 #include "Building.h"
@@ -29,9 +29,9 @@ void Building::ShowStatus()
 {
     //cout << display_code <<" " << id_num << " located at " << location << endl;
     if(pokemon_count <= 1 )
-    cout << pokemon_count << " pokemen is in this building." << endl;
+        cout << "\t"<< pokemon_count << " pokemen is in this building." << endl;
     else
-    cout << pokemon_count << " pokemen are in this building."<< endl;
+        cout << "\t"<< pokemon_count << " pokemen are in this building."<< endl;
 }
 
 bool Building::ShouldBeVisible()

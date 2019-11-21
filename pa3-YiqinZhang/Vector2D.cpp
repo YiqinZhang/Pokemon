@@ -1,24 +1,23 @@
 //
-// Created by Garfield on 2019-11-05.
+// Created by Garfield on 2019-11-19.
 //
 
-
-#include <iostream>
 #include "Vector2D.h"
+#include <iostream>
 
 using namespace std;
 
 Vector2D::Vector2D()
-    {
-        x = 0.0;
-        y = 0.0;
-    }
+{
+    x = 0.0;
+    y = 0.0;
+}
 
 Vector2D::Vector2D(double in_x, double in_y)
-    {
-        x = in_x;
-        y = in_y;
-    }
+{
+    x = in_x;
+    y = in_y;
+}
 
 
 Vector2D operator*(Vector2D v1, double d)
