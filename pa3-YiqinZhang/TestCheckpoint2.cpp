@@ -7,12 +7,15 @@
 #include "PokemonCenter.h"
 #include "Building.h"
 #include "Point2D.h"
+#include "Pokemon.h"
 
 using namespace std;
 
 int main() {
     Point2D p1(3.14,7.07);
     Point2D p2(5,7);
+    Point2D p3(15,25);
+    Point2D p4(35,28);
     cout<< p1 << endl;
     cout<< p2 << endl;
     Vector2D v1(10,15);
@@ -44,5 +47,26 @@ int main() {
     PokemonGym Gym2(3,3,3,3,3,p1);
     Gym2.TrainPokemon(3);
     Gym2.ShowStatus();
+
+    Pokemon Pica;
+    Pica.ShowStatus();
+    Pokemon Picachu('Q');
+    Picachu.ShowStatus();
+    Picachu.StartMoving(p2);
+
+    Picachu.StartMovingToGym(&Gym2);
+    //PokemonGym* getcurrentgym();
+
+    Picachu.StartTraining(1);
+    Picachu.Update();
+    Picachu.ShowStatus();
+
+    Pokemon Picaya("Picaya", 3, 'Y', 5 , p2);
+    Picaya.ShowStatus();
+    Picaya.StartMovingToCenter(&Center2);
+    Picaya.StartRecoveringStamina(1);
+    Picachu.Update();
+    Picachu.ShowStatus();
+
     return 0;
 }

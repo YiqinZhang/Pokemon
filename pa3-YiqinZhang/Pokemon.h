@@ -1,9 +1,9 @@
 //
-// Created by Garfield on 2019-11-19.
+// Created by Garfield on 2019-11-11.
 //
 
-#ifndef PA32_POKEMON_H
-#define PA32_POKEMON_H
+#ifndef PA33_POKEMON_H
+#define PA33_POKEMON_H
 #include "GameObject.h"
 #include "PokemonCenter.h"
 #include "PokemonGym.h"
@@ -61,4 +61,5 @@ private:
 
 static double GetRandomAmountOfPokemonDollars();
 
-#endif //PA32_POKEMON_H
+
+#endif //PA33_POKEMON_H

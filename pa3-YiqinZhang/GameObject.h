@@ -1,9 +1,9 @@
 //
-// Created by Garfield on 2019-11-19.
+// Created by Garfield on 2019-11-05.
 //
 
-#ifndef PA32_GAMEOBJECT_H
-#define PA32_GAMEOBJECT_H
+#ifndef PA33_GAMEOBJECT_H
+#define PA33_GAMEOBJECT_H
 #include "Point2D.h"
 
 class GameObject
@@ -16,11 +16,12 @@ protected:
 public:
     GameObject(char in_code);
     GameObject(Point2D in_loc, int in_id, char in_code);
-    Point2D GetLocation();
+    virtual Point2D GetLocation();
     int GetId();
     char GetState();
-    void ShowStatus();
-//    bool Update();
+    void ShowStatus() ;
+    bool Update();
 };
 
-#endif //PA32_GAMEOBJECT_H
+
+#endif //PA33_GAMEOBJECT_H
