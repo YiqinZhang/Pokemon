@@ -16,7 +16,7 @@ private:
     unsigned int num_training_units_remaining;
     unsigned int max_number_of_training_units;
     unsigned int stamina_cost_per_training_unit;
-    unsigned int dollar_cost_per_training_unit;
+    double dollar_cost_per_training_unit;
     unsigned int experience_points_per_training_unit;
 public:
     PokemonGym();
@@ -31,6 +31,7 @@ public:
     bool Update();
     bool IsBeaten();
     void ShowStatus();
+    ~PokemonGym();
 };
 
 #endif //PA33_POKEMONGYM_H

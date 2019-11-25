@@ -1,72 +1,97 @@
-//
-// Created by Garfield on 2019-11-08.
-//
-
 #include <iostream>
 #include "PokemonGym.h"
 #include "PokemonCenter.h"
 #include "Building.h"
 #include "Point2D.h"
 #include "Pokemon.h"
+#include "Model.h"
+#include "GameCommand.h"
+#include "View.h"
 
 using namespace std;
 
-int main() {
-    Point2D p1(3.14,7.07);
-    Point2D p2(5,7);
-    Point2D p3(15,25);
-    Point2D p4(35,28);
-    cout<< p1 << endl;
-    cout<< p2 << endl;
-    Vector2D v1(10,15);
-    Vector2D v2(15,20);
-    cout << v1 << endl;
-    cout << v2 << endl;
-    cout << p1 + v1 << endl;
-    cout << p1 - p2 << endl;
-    cout << v1/5 << endl;
-    cout << v2*2 << endl;
-    GameObject g1('Z');
-    GameObject g2(p1, 123,'Z');
-    g1.ShowStatus();
-    g2.ShowStatus();
+int main(int argc, char** argv) {
 
-    Building b1;
-    b1.ShowStatus();
+    char* program_name = argv[0];
+    char* path = argv[1];
 
-    Building b2('z',222,p1);
-    b2.ShowStatus();
+    // ./PA3 /tmp/myfile.txt
 
-    PokemonCenter Center1;
-    PokemonCenter Center2(2,2,2,p2);
-    Center1.ShowStatus();
-    Center2.ShowStatus();
+    Model model;
+    Point2D p1(10,10);
+//    model.ShowStatus();
+//    DoMoveCommand( model, 1, p1);
+//    DoMoveToGymCommand(model, 1, 1);
+//    DoTrainInGymCommand(model, 1, 1);
+//    DoGoCommand (model, 2, 2);
+//    DoMoveToCenterCommand(model, 2, 2);
+//    DoRecoverInCenterCommand(model, 2, 1);
+    char input;
+    int ID1=0;
+    int ID2=0;
+    Point2D P0;
+    int stamina_amount = 0;
+    int unit_amount = 0;
+    View view;
+    model.Display(view);
+        view.Clear();
+    view.Plot(model.GetPokemonPtr(1));
+    view.Draw();
 
-    PokemonGym Gym1;
-    Gym1.ShowStatus();
-    PokemonGym Gym2(3,3,3,3,3,p1);
-    Gym2.TrainPokemon(3);
-    Gym2.ShowStatus();
+    cout<< "Start to play: \n";
 
-    Pokemon Pica;
-    Pica.ShowStatus();
-    Pokemon Picachu('Q');
-    Picachu.ShowStatus();
-    Picachu.StartMoving(p2);
-
-    Picachu.StartMovingToGym(&Gym2);
-    //PokemonGym* getcurrentgym();
-
-    Picachu.StartTraining(1);
-    Picachu.Update();
-    Picachu.ShowStatus();
-
-    Pokemon Picaya("Picaya", 3, 'Y', 5 , p2);
-    Picaya.ShowStatus();
-    Picaya.StartMovingToCenter(&Center2);
-    Picaya.StartRecoveringStamina(1);
-    Picachu.Update();
-    Picachu.ShowStatus();
-
+    while(input == 0) {
+        // prompt
+        cin >> input;
+        switch(input) {
+            case 'm': {
+                cin >> ID1;
+                cin >> P0.x;
+                cin >> P0.y;
+                DoMoveCommand(model, ID1, P0);
+                break;
+            }
+            case 'g': {
+                cin >> ID1;
+                cin >> ID2;
+                DoMoveToGymCommand(model, ID1, ID2);
+                break;
+            }
+            case 'c': {
+                cin >> ID1;
+                cin >> ID2;
+                DoMoveToCenterCommand(model, ID1, ID2);
+                break;
+            }
+            case 's': {
+                cin >> ID1;
+                DoStopCommand(model, ID1);
+                break;
+            }
+            case 'r': {
+                cin >> ID1;
+                cin >> stamina_amount;
+                DoRecoverInCenterCommand(model, ID1, stamina_amount);
+                break;
+            }
+            case 't': {
+                cin >> ID1;
+                cin >> stamina_amount;
+                DoRecoverInCenterCommand(model, ID1, stamina_amount);
+                break;
+            }
+            case 'v': {
+                DoGoCommand(model, view);
+                break;
+            }
+            case 'x': {
+                DoRunCommand(model, view);
+                break;
+            }
+            case 'q': {
+                exit(0);
+            }
+        }
+    }
     return 0;
 }

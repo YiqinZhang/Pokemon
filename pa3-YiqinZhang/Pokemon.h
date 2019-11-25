@@ -37,7 +37,9 @@ public:
     bool ShouldBeVisible();
     void ShowStatus();
     bool Update();
-    PokemonGym* getcurrentgym();
+//    PokemonGym* getcurrentgym();
+    ~Pokemon();
+    string GetName();
 
 protected:
     bool UpdateLocation();

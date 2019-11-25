@@ -26,5 +26,6 @@ public:
     unsigned int DistributeStamina(unsigned int points_needed);
     bool Update();
     void ShowStatus();
+    ~PokemonCenter();
 };
 #endif //PA33_POKEMONCENTER_H

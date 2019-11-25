@@ -18,9 +18,12 @@ public:
     GameObject(Point2D in_loc, int in_id, char in_code);
     virtual Point2D GetLocation();
     int GetId();
+    char GetDisplayCode();
     char GetState();
-    void ShowStatus() ;
-    bool Update();
+    virtual void ShowStatus() = 0 ;
+    virtual bool Update() = 0;
+    virtual ~GameObject();
+    void DrawSelf( char * ptr);
 };
 
 

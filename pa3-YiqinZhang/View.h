@@ -6,21 +6,23 @@
 #define PA33_VIEW_H
 #include "GameObject.h"
 
-class View
-{
-    const int view_maxsize = 20;
-private:
-    int size;
-    double scale;
-    Point2D origin;
-    //char grid[view_maxsize][view_maxsize][2];
-    bool GetSubscripts( int &out_x, int &out_y, Point2D location);
+const int view_maxsize = 20;
 
-public:
-    View ();
-    void Clear();
-    void Plot( GameObject * ptr);
-    void Draw();
+class View
+    {
+    //const int view_maxsize = 20;
+    private:
+        int size;
+        double scale;
+        Point2D origin;
+        char grid[view_maxsize][view_maxsize][2];
+        bool GetSubscripts( int &out_x, int &out_y, Point2D location);
+
+    public:
+        View ();
+        void Clear();
+        void Plot(GameObject* ptr);
+        void Draw();
 
 };
 

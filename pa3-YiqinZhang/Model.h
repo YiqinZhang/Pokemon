@@ -8,6 +8,7 @@
 #include "Pokemon.h"
 #include "PokemonCenter.h"
 #include "View.h"
+#include <stdlib.h>
 
 class Model
 {
@@ -32,6 +33,7 @@ public:
     bool Update();
     void Display( View& view);
     void ShowStatus();
+    int GetTime();
 
 };
 #endif //PA33_MODEL_H
