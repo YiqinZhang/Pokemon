@@ -1,9 +1,9 @@
 //
-// Created by Garfield on 2019-11-19.
+// Created by Garfield on 2019-11-06.
 //
 
-#ifndef PA32_BUILDING_H
-#define PA32_BUILDING_H
+#ifndef PA33_BUILDING_H
+#define PA33_BUILDING_H
 #include "Point2D.h"
 #include "GameObject.h"
 
@@ -20,5 +20,4 @@ public:
     void ShowStatus();
     bool ShouldBeVisible();
 };
-
-#endif //PA32_BUILDING_H
+#endif //PA33_BUILDING_H

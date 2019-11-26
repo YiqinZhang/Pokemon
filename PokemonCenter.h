@@ -1,9 +1,9 @@
 //
-// Created by Garfield on 2019-11-19.
+// Created by Garfield on 2019-11-06.
 //
 
-#ifndef PA32_POKEMONCENTER_H
-#define PA32_POKEMONCENTER_H
+#ifndef PA33_POKEMONCENTER_H
+#define PA33_POKEMONCENTER_H
 #include "Point2D.h"
 #include "Building.h"
 class PokemonCenter: public Building
@@ -26,5 +26,6 @@ public:
     unsigned int DistributeStamina(unsigned int points_needed);
     bool Update();
     void ShowStatus();
+    ~PokemonCenter();
 };
-#endif //PA32_POKEMONCENTER_H
+#endif //PA33_POKEMONCENTER_H

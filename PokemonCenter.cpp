@@ -1,5 +1,5 @@
 //
-// Created by Garfield on 2019-11-19.
+// Created by Garfield on 2019-11-06.
 //
 
 #include "PokemonCenter.h"
@@ -86,7 +86,12 @@ bool PokemonCenter::Update()
 void PokemonCenter::ShowStatus()
 {
     cout << "Pokemon Center Status: ";
+    GameObject::ShowStatus();
     Building::ShowStatus();
     cout << "\t Pokemon dollars per stamina point: " << dollar_cost_per_stamina_point << endl;
-    cout <<  "\t has "<< num_stamina_points_remaining << " stamina point(s) remaining." << endl;
+    cout << "\t has "<< num_stamina_points_remaining << " stamina point(s) remaining." << endl;
+}
+PokemonCenter::~PokemonCenter()
+{
+    cout << "\t PokemonCenter destructed." << endl;
 }

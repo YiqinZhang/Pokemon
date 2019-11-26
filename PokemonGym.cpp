@@ -1,7 +1,6 @@
 //
-// Created by Garfield on 2019-11-19.
+// Created by Garfield on 2019-11-08.
 //
-
 #include "PokemonGym.h"
 #include "PokemonGym.h"
 
@@ -14,7 +13,7 @@ PokemonGym::PokemonGym()
     stamina_cost_per_training_unit = 1;
     dollar_cost_per_training_unit = 1.0;
     experience_points_per_training_unit = 2;
-    cout << "PokemonGym default constructed" << endl;
+    cout << "\t PokemonGym default constructed" << endl;
 }
 
 PokemonGym::PokemonGym(unsigned int max_training_units, unsigned int stamina_cost,
@@ -28,7 +27,7 @@ PokemonGym::PokemonGym(unsigned int max_training_units, unsigned int stamina_cos
     dollar_cost_per_training_unit = dollar_cost;
     experience_points_per_training_unit = exp_points_per_unit;
     num_training_units_remaining = max_number_of_training_units;
-    cout << "PokemonGym constructed" << endl;
+    cout << "\t PokemonGym constructed" << endl;
 }
 
 double PokemonGym::GetDollarCost(unsigned int unit_qty)
@@ -77,8 +76,11 @@ bool PokemonGym::Update()
         state = BEATEN;
         display_code = 'g';
         cout<< "\t"<< display_code<< " " << id_num <<  " has been beaten. " << endl;
+        return true;
     }
     else if (num_training_units_remaining > 0)
+        return false;
+    else
         return false;
 }
 
@@ -86,15 +88,22 @@ bool PokemonGym::IsBeaten()
 {
     if (num_training_units_remaining ==0)
         return true;
+    else
+        return false;
 }
 
 void PokemonGym::ShowStatus()
 {
     cout << "Pokemon Gym Status: ";
+    GameObject::ShowStatus();
     Building::ShowStatus();
     cout << "\t Max number of training units: " << max_number_of_training_units << endl;
     cout << "\t Stamina cost per training unit: " << stamina_cost_per_training_unit << endl;
     cout << "\t Pokemon dollar per training unit: " << dollar_cost_per_training_unit << endl;
     cout << "\t Experience points per training unit: " << experience_points_per_training_unit << endl;
     cout << "\t "<< num_training_units_remaining << " training unit(s) are remaining for this gym \n";
+}
+PokemonGym::~PokemonGym()
+{
+    cout << "\t PokemonGym destructed." << endl;
 }
