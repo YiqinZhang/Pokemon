@@ -43,20 +43,12 @@ bool BattleArena::HasEnoughRivals()
 }
 double BattleArena::GetDollarCost()
 {
-    return dollar_cost_per_fight * num_rivals_remaining;
+    return dollar_cost_per_fight; //* num_rivals_remaining;
 }
 unsigned int BattleArena::GetStaminaCost()
 {
-    return stamina_cost_per_fight * num_rivals_remaining;
+    return stamina_cost_per_fight; //* num_rivals_remaining;
 }
-
-/*
-unsigned int BattleArena::GetMaxAllowablefigntUnits(double budget, unsigned int stamina) {
-    unsigned int cost_by_stamina = stamina / stamina_cost_per_fight;
-    unsigned int cost_by_budget = (int)(budget / dollar_cost_per_fight);
-    unsigned int allowable_units = min(cost_by_budget, cost_by_stamina);
-    return allowable_units;
-}*/
 
 bool BattleArena::IsAbleToFight( double budget, unsigned int stamina)
 {

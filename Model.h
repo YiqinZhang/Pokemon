@@ -7,24 +7,21 @@
 #include "View.h"
 #include "Rival.h"
 #include "BattleArena.h"
-
+#include <list>
 
 class Model {
     
 public:
     //simulation time
     int time;
-    GameObject * object_ptrs[10];
-    int num_objects;
-    Pokemon * pokemon_ptrs[10];
-    int num_pokemon;
-    PokemonCenter * center_ptrs[10];
-    int num_centers;
-    PokemonGym * gym_ptrs[10];
-    int num_gyms;
-    Rival* rival_ptrs[10];
-    int num_rivals;
-    BattleArena* arena_ptrs[10];
+    list<GameObject*> object_ptrs;
+    list<GameObject*> active_ptrs;
+    list<Pokemon*> pokemon_ptrs;
+    list<Rival*> rival_ptrs;
+    list<PokemonCenter*> center_ptrs;
+    list<PokemonGym*> gym_ptrs;
+    BattleArena* arena;
+   
 public:
     Model();
     ~Model();

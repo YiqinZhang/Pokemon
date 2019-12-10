@@ -149,7 +149,6 @@ if (health >0){
     cout<< "Health: "<< health << endl;
     cout<< "*******\n";
 }
-
 }
 void Pokemon::ReadyBattle(Rival* in_target)
 {
@@ -183,20 +182,23 @@ void Pokemon::ReadyBattle(Rival* in_target)
 bool Pokemon::StartBattle(){
 //    Call this function in the BATTLE state
 //while ((health > 0) && (target->IsAlive()))
+this->stamina -= current_arena->GetStaminaCost();
+this->pokemon_dollars-= current_arena->GetDollarCost();
 while (health>=0)
 {
     this ->TakeHit(physical_damage, magical_damage, defense);
-    target->TakeHit(physical_damage, magical_damage, defense);
+    target->TakeHit(physical_damage, magical_damage, defense); 
 //    if(!target->IsAlive()) {
     if (target->get_health()<= 0){
         target->IsAlive();
         current_arena->num_rivals_remaining --;
-        cout<< "Congrats Master, you defeated one rival!\n";
         this->health = store_health;
+        cout<< "Congrats Master, you defeated one rival!\n";
         state = IN_ARENA;
         return true;
     }
 }
+cout<< "Oops, you was defeated by one rival!\n"; 
 return false;
 }
 
@@ -343,9 +345,7 @@ bool Pokemon::Update() {
         case BATTLE:
             pokemon_dollars -= current_arena->GetDollarCost();
             stamina -= current_arena->GetStaminaCost();
-            StartBattle();
-            if (this->IsAlive() )
-//            && (target->Update())) //            If the pokemon wins
+            if (StartBattle())
             {
                 health = store_health;
                 state = IN_ARENA;
@@ -354,6 +354,7 @@ bool Pokemon::Update() {
                 return true;
             }
             else{
+                cout<< "Oops, you was defeated by one rival!\n";
                 state= FAINTED;
                 target->IsAlive();
                 return false;
