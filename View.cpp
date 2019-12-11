@@ -36,11 +36,14 @@ void View::Plot(GameObject *ptr) {
     valid = GetSubscripts(ix, iy, ptr->GetLocation());
     if (valid && grid[ix][iy][0] == '.') {
         ptr->DrawSelf(grid[ix][iy]);
+//      cout << "GameObject ptr display is Valid" << endl;
     }
     else if (valid) {
         grid[ix][iy][0] = '*';
         grid[ix][iy][1] = ' ';
-    }
+    } else {
+//       cout <<  "GameObject Ptr display is not valid" << endl;
+     }
 }
 
 void View::Draw() {

@@ -13,9 +13,6 @@
 Model::Model() {
     time = 0;
     //Pikachu 1
-    list<GameObject*> object_ptrs;
-    list<GameObject*> active_ptrs;
-    list<Pokemon*> pokemon_ptrs;
     Pokemon* pokemon1 = new Pokemon("Pikachu", 1, 'P', 2.0, Point2D(5, 1));
     Pokemon* pokemon2 = new Pokemon("Bulbasaur", 2, 'P', 1.0, Point2D(10, 1));
     pokemon_ptrs.push_back(pokemon1);
@@ -24,7 +21,6 @@ Model::Model() {
     object_ptrs.push_back(pokemon2);
     active_ptrs.push_back(pokemon1);
     active_ptrs.push_back(pokemon2);
-    list<Rival*> rival_ptrs;
     Rival* rival1= new Rival("Burhack", 5.0, 16,3,4,12, 1, Point2D(15,12));
     object_ptrs.push_back (rival1);
     Rival* rival2 = new Rival("Mmark9", 5.0, 20,3,7.2,20, 2, Point2D(15,12));
@@ -43,7 +39,6 @@ Model::Model() {
     //PokemonCenter 2
     PokemonCenter* center2 = new PokemonCenter(2, 2, 200,  Point2D(10, 20));
     object_ptrs.push_back (center2);
-    list<PokemonCenter*> center_ptrs;
     center_ptrs.push_back (center1);
     center_ptrs.push_back (center2);
     active_ptrs.push_back (center1);
@@ -55,24 +50,18 @@ Model::Model() {
     PokemonGym* gym2 = new PokemonGym(20, 5,
                                       7.5, 8, 2, Point2D(5, 5));
     object_ptrs.push_back (gym2);
-    list<PokemonGym*> gym_ptrs;
     gym_ptrs.push_back (gym1);
     gym_ptrs.push_back (gym2);
     active_ptrs.push_back (gym1);
     active_ptrs.push_back (gym2);
-    BattleArena* arena = new BattleArena(3, 3,
-                                         2.5, 1, Point2D(15, 12));
+    arena = new BattleArena(3, 3,2.5, 1, Point2D(15, 12));
     object_ptrs.push_back (arena);
     active_ptrs.push_back (arena);
-/*     list<GameObject*>::iterator it;
-   for(it = object_ptrs.begin(); it != object_ptrs.end(); ++it) {
-        active_ptrs.push_back(*it);
-    }*/
     cout << "Model default constructed. " << endl;
 }
 
 Model::~Model() {
-    for(auto it = object_ptrs.begin(); it != object_ptrs.end(); ++it) {
+    for(auto it = object_ptrs.begin(); it != object_ptrs.end(); it++) {
         delete (*it);
         }
     cout << "Model destructed. " << endl;
@@ -80,7 +69,7 @@ Model::~Model() {
 
 Pokemon *Model::GetPokemonPtr(int id) {
     list<Pokemon*>::iterator it;
-    for (it=pokemon_ptrs.begin(); it!=pokemon_ptrs.end(); ++it) {
+    for (it=pokemon_ptrs.begin(); it!=pokemon_ptrs.end(); it++) {
         if (id == (*it)->GetId()) {
             return *it;
         }
@@ -90,7 +79,7 @@ Pokemon *Model::GetPokemonPtr(int id) {
 
 PokemonCenter *Model::GetPokemonCenterPtr(int id) {
     list<PokemonCenter*>::iterator it;
-    for (it=center_ptrs.begin(); it!=center_ptrs.end(); ++it) {
+    for (it=center_ptrs.begin(); it!=center_ptrs.end(); it++) {
         if (id == (*it)->GetId()) {
             return (*it);
         }
@@ -100,7 +89,7 @@ PokemonCenter *Model::GetPokemonCenterPtr(int id) {
 
 PokemonGym *Model::GetPokemonGymPtr(int id) {
     list<PokemonGym*>::iterator it;
-    for (it=gym_ptrs.begin(); it!=gym_ptrs.end(); ++it) {
+    for (it=gym_ptrs.begin(); it!=gym_ptrs.end(); it++) {
         if (id == (*it)->GetId()) {
             return (*it);
         }
@@ -109,7 +98,6 @@ PokemonGym *Model::GetPokemonGymPtr(int id) {
 }
 
 BattleArena* Model::GetBattleArenaPtr(int id) {
-    BattleArena* arena;
     if (id == arena->GetId()) {
         return arena;
     }
@@ -174,12 +162,8 @@ bool Model::Update() {
 
 void Model::Display(View &view) {
     view.Clear();
-    for(auto it = active_ptrs.begin(); it != active_ptrs.end(); ++it) {
-/*        if (!(*it)->ShouldBeVisible()) {
-            it = active_ptrs.erase(it);
-        }
-        else
-*/
+   // cout << "Active ptrs size = " << active_ptrs.size() << endl;
+    for(auto it = active_ptrs.begin(); it != active_ptrs.end(); it++) {
         view.Plot(*it);
     }
     view.Draw();
@@ -187,7 +171,7 @@ void Model::Display(View &view) {
 
 void Model::ShowStatus() {
     cout << "Time: " << time << endl;
-    for (auto it=object_ptrs.begin(); it!=object_ptrs.end(); ++it) {
+    for (auto it=object_ptrs.begin(); it!=object_ptrs.end(); it++) {
         (*it)->ShowStatus();
     }
 }

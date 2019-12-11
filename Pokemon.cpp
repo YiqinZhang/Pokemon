@@ -4,7 +4,7 @@
 #include <cstdlib>
 #include <string>
 
-// TODO: Pick sane default starting values
+
 Pokemon::Pokemon() : GameObject('P') {
     stamina = 20;
     pokemon_dollars = 0.0;
